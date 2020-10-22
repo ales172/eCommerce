@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,19 +8,20 @@ namespace eCommerce.Models
 {
     public class User
     {
-		private int UserId { get; set; }
-		private string Name { get; set; }
-		private string LastName { get; set; }
-		private string Email { get; set; }
-		private string UserName { get; set; }
-		private string Password { get; set; }
-		private string Adress { get; set; }
-		private string City { get; set; }
-		private string Province { get; set; }
-		private string Country { get; set; }
-		private string PostalCode { get; set; }
-		private long DNI { get; set; }
-		private DateTime Birtdate { get; set; }
+		[Key]
+		public int UserId { get; set; }
+		public string Name { get; set; }
+		public string LastName { get; set; }
+		public string Email { get; set; }
+		public string UserName { get; set; }
+		public string Password { get; set; }
+		public string Adress { get; set; }
+		public string City { get; set; }
+		public string Province { get; set; }
+		public string Country { get; set; }
+		public string PostalCode { get; set; }
+		public long DNI { get; set; }
+		public DateTime Birthdate { get; set; }
 
 	}
 }
