@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "productCode": "1234",
+      "productName": "Remera",
+      "productPrice": "15",
+      "productImage": "",
+      "productDescripcion": "Remera Roja",
+      "productStock": "12",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "productCode": "2342",
+      "productName": "Pantalon",
+      "productPrice": "23",
+      "productDescripcion": "Pantalon Azul",
+      "productImage": "",
+      "productStock": "3"
+    },
+    {
+      "id": 3,
+      "productCode": "7613",
+      "productName": "Buzo",
+      "productPrice": "19",
+      "productDescripcion": "Buzo Celeste",
+      "productImage": "",
+      "productStock": "8"
+    },
+    {
+      "productCode": 200,
+      "productName": "Remera",
+      "productPrice": 500,
+      "productImage": "",
+      "productDescripcion": "Remera Gris",
+      "productStock": 20,
+      "id": 4
+    },
+    {
+      "productCode": "9934",
+      "productName": "Campera",
+      "productPrice": "45",
+      "productDescripcion": "Campera SoftShell",
+      "productImage": "",
+      "productStock": "4",
+      "id": 6
+    },
+    {
+      "productCode": "5678",
+      "productName": "Gorra",
+      "productPrice": "5",
+      "productImage": "",
+      "productDescripcion": "Gorra Azul",
+      "productStock": "5",
+      "id": 7
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "Name": "Damian",
+      "LastName": "Di Martino",
+      "Email": "mimail@gmail.com",
+      "Password": "123456",
+      "Address": "Calle Falsa 123",
+      "City": "Springfield",
+      "Province": "Big Springfield",
+      "Country": "More Big Springfield",
+      "PostalCode": "765600",
+      "DNI": "33445566",
+      "Birthdate": "26-01-1988"
+    }
+  ]
+}

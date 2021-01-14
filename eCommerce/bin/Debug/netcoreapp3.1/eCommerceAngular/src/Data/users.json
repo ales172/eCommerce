@@ -1,0 +1,18 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "Name": "Damian",
+        "LastName": "Di Martino",
+        "Email": "mimail@gmail.com",
+        "Password": "123456",
+        "Address": "Calle Falsa 123",
+        "City": "Springfield",
+        "Province": "Big Springfield",
+        "Country": "More Big Springfield",
+        "PostalCode": "765600",
+        "DNI": "33445566",
+        "Birthdate": "26-01-1988"
+      }
+    ]
+  }

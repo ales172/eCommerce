@@ -10,23 +10,23 @@ using eCommerce.Models;
 namespace eCommerce.Migrations
 {
     [DbContext(typeof(ECommerceContext))]
-    [Migration("20201022201652_TablesCreation")]
-    partial class TablesCreation
+    [Migration("20201202151323_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.9")
+                .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "5.0.0");
 
             modelBuilder.Entity("eCommerce.Models.Chart", b =>
                 {
                     b.Property<int>("ChartId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<float>("DeliveryCost")
                         .HasColumnType("real");
@@ -44,7 +44,7 @@ namespace eCommerce.Migrations
                     b.Property<int>("ChartLineId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<int>("ChartId")
                         .HasColumnType("int");
@@ -71,7 +71,7 @@ namespace eCommerce.Migrations
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<int>("ProductCode")
                         .HasColumnType("int");
@@ -101,7 +101,7 @@ namespace eCommerce.Migrations
                     b.Property<int>("TicketId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<float>("Total")
                         .HasColumnType("real");
@@ -121,7 +121,7 @@ namespace eCommerce.Migrations
                     b.Property<int>("TicketLineId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<int?>("ChartId")
                         .HasColumnType("int");
@@ -155,13 +155,10 @@ namespace eCommerce.Migrations
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<string>("Adress")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Birthdate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
@@ -203,6 +200,8 @@ namespace eCommerce.Migrations
                     b.HasOne("eCommerce.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("eCommerce.Models.TicketLine", b =>
@@ -216,6 +215,16 @@ namespace eCommerce.Migrations
                         .HasForeignKey("TicketId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("eCommerce.Models.Chart", b =>
+                {
+                    b.Navigation("ProductsList");
+                });
+
+            modelBuilder.Entity("eCommerce.Models.Ticket", b =>
+                {
+                    b.Navigation("TicketLines");
                 });
 #pragma warning restore 612, 618
         }

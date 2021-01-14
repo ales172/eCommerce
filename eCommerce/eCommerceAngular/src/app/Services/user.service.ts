@@ -1,17 +1,38 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/Models/User';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   user: User = new User();
-  private url = "src/Data/products.json";
+  usersList: Array<User> = new Array<User>();
+  //private url="http://localhost:3000/users";
+  private url="https://localhost:44348/api/users";
 
-  constructor() { 
-    this.user.Name = "Damian";
-    this.user.LastName = "Di Martino";
-    this.user.UserId = 1;
+  constructor(private httpRequest:HttpClient ) { 
+  }
+
+  GetAllUsers() : Observable<User[]>
+  {
+    return this.httpRequest.get<User[]>(this.url);
+  }
+
+  GetUserByEmail(Email:string):User
+  {
+    this.GetAllUsers().subscribe((userResponse)=>{
+      this.usersList = userResponse; 
+      console.log("Service: "+this.usersList);
+    })
+    this.usersList.forEach(user => {
+      if(user.Email === Email)
+      {
+        console.log("Service: "+user.Email);
+        this.user=user;
+      }
+    });
+    return this.user;
   }
 }

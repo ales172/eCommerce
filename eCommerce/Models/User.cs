@@ -21,7 +21,6 @@ namespace eCommerce.Models
 		public string Country { get; set; }
 		public string PostalCode { get; set; }
 		public long DNI { get; set; }
-		public DateTime Birthdate { get; set; }
 
 	}
 }

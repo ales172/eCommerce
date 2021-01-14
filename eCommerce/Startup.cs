@@ -34,16 +34,23 @@ namespace eCommerce
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseAuthentication();
 
+            app.UseHsts();
             app.UseHttpsRedirection();
 
+            app.UseCors(builder => builder
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .SetIsOriginAllowed((host) => true)
+                .AllowCredentials()
+            );
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                //endpoints.MapHealthChecks("/health");
             });
         }
     }

@@ -14,7 +14,6 @@ create  table dbo.Users(
 	Country varchar(50),
 	PostalCode varchar(50),
 	DNI bigint,
-	Birtdate date
 )
 
 create table dbo.Products(

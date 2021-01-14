@@ -1,0 +1,15 @@
+<div class="container" style="width: 50%;">
+    <form [formGroup]="loginForm">
+        <div>
+            <label for="">User/Mail</label>
+            <input type="text" formControlName="Email">
+        </div>
+        <div>
+            <label for="">Password</label>
+            <input type="password" formControlName="Password">
+        </div>
+        <div>
+            <button class="btn btn-success" (click)="login()">Login</button>
+        </div>
+    </form>
+</div>

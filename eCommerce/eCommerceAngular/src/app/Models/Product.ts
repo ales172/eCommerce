@@ -1,21 +1,22 @@
 
 export class Product
 {
-    ProductCode:number;
-	ProductName:string;
-	ProductPrice:number;
-	ProductDescripcion:string;
-	ProductImage:string;
-	ProductStock:number;
+    productId:number;
+    productCode:number;
+	productName:string;
+	productPrice:number;
+	productDescripcion:string;
+	productImage:string;
+	productStock:number;
 
 	constructor()
 	{
-		this.ProductCode = this.ProductCode;
-		this.ProductName = this.ProductName; 
-		this.ProductPrice = this.ProductPrice;
-		this.ProductDescripcion = this.ProductDescripcion;
-		this.ProductImage = this.ProductImage;
-		this.ProductStock = this.ProductStock; 
+		this.productCode = this.productCode;
+		this.productName = this.productName; 
+		this.productPrice = this.productPrice;
+		this.productDescripcion = this.productDescripcion;
+		this.productImage = this.productImage;
+		this.productStock = this.productStock; 
 	}
 	
 }
