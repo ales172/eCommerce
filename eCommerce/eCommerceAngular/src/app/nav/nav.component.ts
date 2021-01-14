@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { timer } from 'rxjs';
 import { AddProductComponent } from '../add-product/add-product.component';
 import { User } from '../Models/User';
 import { UserService } from '../Services/user.service';
@@ -11,15 +13,16 @@ import { UserService } from '../Services/user.service';
 export class NavComponent implements OnInit {
 
   user: User = new User();
-  constructor(private userService:UserService) { }
-
+  constructor(private userService:UserService,
+              private ruta: ActivatedRoute) { }
+  
+  isUserActive: boolean = false;
   ngOnInit(): void {
-    this.user.Name = this.userService.user.Name;
-    this.user.LastName = this.userService.user.LastName;
   }
 
 
-  openDialog(){
-    
+  GetUser(){
+    this.user = this.userService.GetActiveUser() as User;
+    this.isUserActive = this.userService.isUserActive;
   }
 }

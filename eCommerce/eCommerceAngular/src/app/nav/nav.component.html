@@ -17,6 +17,6 @@
       <a class="nav-link" routerLink="/add/0">Add</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#" tabindex="-1" aria-disabled="false">{{user.Name}} {{user.LastName}}</a>
+      <h4 *ngIf="isUserActive">User: {{user.Name}} {{user.LastName}}</h4>
     </li>
   </ul>

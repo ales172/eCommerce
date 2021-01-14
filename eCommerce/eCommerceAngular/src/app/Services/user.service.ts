@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/Models/User';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { map } from "rxjs/internal/operators/map";
+import { catchError } from "rxjs/internal/operators/catchError";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  user: User = new User();
+  activeUser: User = new User();
   usersList: Array<User> = new Array<User>();
-  //private url="http://localhost:3000/users";
-  private url="https://localhost:44348/api/users";
+  isUserActive: boolean = false;
+  private url="http://localhost:3000/users";
+  //private url="https://localhost:44348/api/users";
 
   constructor(private httpRequest:HttpClient ) { 
   }
@@ -20,19 +23,14 @@ export class UserService {
     return this.httpRequest.get<User[]>(this.url);
   }
 
-  GetUserByEmail(Email:string):User
+  SetActiveUser(user: User)
   {
-    this.GetAllUsers().subscribe((userResponse)=>{
-      this.usersList = userResponse; 
-      console.log("Service: "+this.usersList);
-    })
-    this.usersList.forEach(user => {
-      if(user.Email === Email)
-      {
-        console.log("Service: "+user.Email);
-        this.user=user;
-      }
-    });
-    return this.user;
+    this.activeUser = user;
+    this.isUserActive = true;
+  }
+
+  GetActiveUser(): User
+  {
+    return this.activeUser;
   }
 }

@@ -23,11 +23,11 @@ export class AddProductComponent implements OnInit {
 
   constructor(private productService:ProductService, 
               private formBuilder:FormBuilder,
-              private activeRoute:ActivatedRoute,
+              private activatedRoute:ActivatedRoute,
               private router: Router) { }
 
   ngOnInit(): void {
-    this.productId = this.activeRoute.snapshot.params.productId;
+    this.productId = this.activatedRoute.snapshot.params.productId;
 
     this.mainProductsForm = this.formBuilder.group({
       productCode:["",new FormControl(Validators.required,Validators.minLength(2))],

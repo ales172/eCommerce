@@ -21,8 +21,6 @@ export class ProductListComponent implements OnInit {
   GetList():void{
     this.productService.GetProducts().subscribe((productsResponse:Product[])=>{
       this.products = productsResponse;
-      console.log(productsResponse[0].productName);
-      console.log(this.products);
     });
   }
 
